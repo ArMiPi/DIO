@@ -1,0 +1,16 @@
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\BankAccounts.exe
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\BankAccounts.deps.json
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\BankAccounts.runtimeconfig.json
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\BankAccounts.runtimeconfig.dev.json
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\BankAccounts.dll
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\ref\BankAccounts.dll
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\bin\Debug\net5.0\BankAccounts.pdb
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.csproj.AssemblyReference.cache
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.GeneratedMSBuildEditorConfig.editorconfig
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.AssemblyInfoInputs.cache
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.AssemblyInfo.cs
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.csproj.CoreCompileInputs.cache
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.dll
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\ref\BankAccounts.dll
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.pdb
+D:\Arthur\Prog\Projetos\C#\DIO\Conta Bancária\BankAccounts\obj\Debug\net5.0\BankAccounts.genruntimeconfig.cache
