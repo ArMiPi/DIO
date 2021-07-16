@@ -10,7 +10,9 @@ namespace BankAccounts
         {
             // Create Client
             Console.Clear();
-            Console.WriteLine("Dados do cliente: ");
+            Console.WriteLine("----- CRIAÇÃO DE CONTA -----");
+            Console.WriteLine();
+            Console.WriteLine("DADOS DO CLIENTE");
             Console.Write("Nome: ");
             string name = Console.ReadLine();
             Console.Write("ID: ");
@@ -23,7 +25,8 @@ namespace BankAccounts
                 Client client = new Client(name, id, email);
 
                 // Create Account
-                Console.WriteLine("Dados da conta: ");
+                Console.WriteLine();
+                Console.WriteLine("DADOS DA CONTA");
                 Console.Write("Tipo da conta (0 -> Pessoa Física / 1 -> Pessoa Jurídica / 2 -> ONG): ");
                 int type = int.Parse(Console.ReadLine());
                 AccountType accType = (AccountType)type;
@@ -43,7 +46,8 @@ namespace BankAccounts
         public static void RemoveAccount(List<Account> list)
         {
             Console.Clear();
-            Console.WriteLine("Remoção de conta");
+            Console.WriteLine("----- REMOÇÃO DE CONTA -----");
+            Console.WriteLine();
             Console.Write("ID: ");
             string id = Console.ReadLine();
 
@@ -59,14 +63,39 @@ namespace BankAccounts
         public static void ListAccounts(List<Account> list)
         {
             Console.Clear();
+            Console.WriteLine("----- LISTA DE CONTAS -----");
 
             if(list.Count > 0)
             {
+                Console.WriteLine();
                 foreach(Account acc in list)
                     Console.WriteLine(acc.ToString());
             }
             else
-                Console.WriteLine("Não há contas registradas");
+                Console.WriteLine("\nNão há contas registradas");
+        }
+
+        public static void Deposit(List<Account> list)
+        {
+            Console.Clear();
+            Console.WriteLine("----- DEPÓSITO -----");
+            Console.WriteLine();
+            Console.Write("ID: ");
+            string id = Console.ReadLine();
+
+            if(AccountExist(list, id))
+            {
+                Account acc = GetAccount(list, id);
+                
+                Console.Write("Valor do depósito: ");
+                float value = float.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                acc.Deposit(value);
+
+                Console.WriteLine("\nDepósito efetuado com sucesso");
+            }
+            else
+                Console.WriteLine("\nErro: Conta não encontrada");
         }
 
         private static bool AccountExist(List<Account> list, string id)

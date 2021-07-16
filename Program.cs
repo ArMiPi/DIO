@@ -49,7 +49,7 @@ namespace BankAccounts
                     Operations.ListAccounts(list);
                     break;
                 case "4":
-                    //Operations.Deposit();
+                    Operations.Deposit(list);
                     break;
                 case "5":
                     //Operations.Transference();
