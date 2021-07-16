@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace BankAccounts
 {
@@ -18,8 +19,9 @@ namespace BankAccounts
             AccType = accType;
             Creation = creation;
             Cond = Condition.NoFunds;
-            Deposit(initialBalance);
             Log = new List<string>();
+            Log.Add("Account created\t" + Creation.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+            Deposit(initialBalance);
         }
 
         public void Deposit(float value, bool transf = false)
@@ -39,7 +41,7 @@ namespace BankAccounts
                 Cond = Condition.OK;
             
             if(!transf)
-                Log.Add("Deposit: + " + value.ToString("F2") + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+                Log.Add("Deposit: + " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
         }
 
         public void Withdraw(float value, bool transf = false)
@@ -53,7 +55,7 @@ namespace BankAccounts
                 Balance -= value;
                 
                 if(!transf)
-                    Log.Add("Withdraw: - " + value.ToString("F2") + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+                    Log.Add("Withdraw: - " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
             }
             else
             {
@@ -75,10 +77,10 @@ namespace BankAccounts
                 if(Cond == Condition.OK)
                 {
                     acc.Deposit(value, true);
-                    acc.Log.Add("Transference from " + this.Client.Name + ": + " + value.ToString("F2") + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+                    acc.Log.Add("Transference from " + this.Client.Name + ": + " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
 
                     this.Withdraw(value, true);
-                    this.Log.Add("Transference to " + acc.Client.Name + ": - " + value.ToString("F2") + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+                    this.Log.Add("Transference to " + acc.Client.Name + ": - " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
                 }
                 else
                 {
@@ -96,6 +98,7 @@ namespace BankAccounts
 
         public void ShowLog()
         {
+            Console.WriteLine("Log da conta:");
             foreach(string log in this.Log)
                 Console.WriteLine(log);
         }
@@ -103,8 +106,8 @@ namespace BankAccounts
         public override string ToString()
         {
             return "\nClient : " + Client.Name + ", " + AccType
-                    + "\nCreation Date: " + Creation.ToString("dd/MMMM/yyyy")
-                    + "\nBalance: " + Balance.ToString("F2")
+                    + "\nCreation Date: " + Creation.ToString("dd/MM/yyyy")
+                    + "\nBalance: " + Balance.ToString("F2", CultureInfo.InvariantCulture)
                     + "\nCondition: " + Cond
                     +" \n";
         }

@@ -3,17 +3,17 @@ namespace BankAccounts
     public class Client
     {
         public string Name { get; private set; }
-        private int id; // RG, CPF or CNPJ
+        private string id; // RG, CPF or CNPJ
         private string email;
 
-        public Client(string name, int id, string email)
+        public Client(string name, string id, string email)
         {
             this.Name = name;
             this.id = id;
             this.email = email;
         }
 
-        public int GetID()
+        public string GetID()
         {
             return id;
         }
