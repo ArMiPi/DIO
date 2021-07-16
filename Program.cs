@@ -52,7 +52,7 @@ namespace BankAccounts
                     Operations.Deposit(list);
                     break;
                 case "5":
-                    //Operations.Transference();
+                    Operations.Transference(list);
                     break;
                 case "6":
                     //Operations.Withdraw();

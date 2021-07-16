@@ -103,6 +103,11 @@ namespace BankAccounts
                 Console.WriteLine(log);
         }
 
+        public float GetBalance()
+        {
+            return Balance;
+        }
+
         public override string ToString()
         {
             return "\nClient : " + Client.Name + ", " + AccType

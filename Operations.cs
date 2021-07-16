@@ -98,6 +98,47 @@ namespace BankAccounts
                 Console.WriteLine("\nErro: Conta não encontrada");
         }
 
+        public static void Transference(List<Account> list)
+        {
+            Console.Clear();
+            Console.WriteLine("----- TRANSFERÊNCIA -----");
+            Console.WriteLine();
+            Console.Write("ID1: ");
+            string id1 = Console.ReadLine();
+            if(!AccountExist(list, id1))
+                Console.WriteLine("\nErro: Conta não encontrada");
+            else
+            {
+                Account acc1 = GetAccount(list, id1);
+                if(acc1.Cond != Condition.OK)
+                    Console.WriteLine("\nEsta conta não pode realizar transferências");
+                else
+                {
+                    Console.WriteLine("Valor da transferência: ");
+                    float value = float.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                    if(value > acc1.GetBalance())
+                        Console.WriteLine("\nErro: Saldo insuficiente");
+                    else
+                    {
+                        Console.WriteLine("ID2: ");
+                        string id2 = Console.ReadLine();
+
+                        if(!AccountExist(list, id2))
+                            Console.WriteLine("\nErro: Conta não encontrada");
+                        else
+                        {
+                            Account acc2 = GetAccount(list, id2);
+
+                            acc1.TransferTo(acc2, value);
+
+                            Console.WriteLine("\nTransferência realizada com sucesso");
+                        }
+                    }
+                }
+            }
+        }
+
         private static bool AccountExist(List<Account> list, string id)
         {
             foreach(Account acc in list)
