@@ -41,7 +41,8 @@ namespace BankAccounts
                 Cond = Condition.OK;
             
             if(!transf)
-                Log.Add("Deposit: + " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+                Log.Add("Deposit: \t +" + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+            Console.WriteLine("Depósito realizado com sucesso");
         }
 
         public void Withdraw(float value, bool transf = false)
@@ -51,11 +52,26 @@ namespace BankAccounts
             if(Cond == Condition.OK)
             {
                 if(value > Balance)
-                    Cond = Condition.InDebt;
-                Balance -= value;
-                
-                if(!transf)
-                    Log.Add("Withdraw: - " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));
+                {
+                    if(!transf)
+                        Console.WriteLine("\nErro: Saldo insuficiente");
+                    else
+                    {
+                        Balance -= value;
+                        Cond = Condition.InDebt;
+                    }
+                }
+                else
+                {
+                    Balance -= value;
+
+                    if(Balance == 0)
+                        Cond = Condition.NoFunds;
+
+                    if(!transf)
+                        Log.Add("Withdraw: \t - " + value.ToString("F2", CultureInfo.InvariantCulture) + "\t" + time.ToString("dddd, dd MMMM yyyy HH:mm:ss"));   
+                    Console.WriteLine("Saque realizado com sucesso");
+                }
             }
             else
             {
@@ -107,6 +123,7 @@ namespace BankAccounts
         {
             return Balance;
         }
+
 
         public override string ToString()
         {
